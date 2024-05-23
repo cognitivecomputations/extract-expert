@@ -27,7 +27,7 @@ def slerp(v0, v1, lambda_val):
     result = torch.where(sin_omega_zero_mask, linear_interpolated, slerped)
     return result
 
-def interpolate_model(model_name, output_dir, lambda_val=0.7):
+def interpolate_model(model_name, output_dir, lambda_val=0.5):
     model = AutoModelForCausalLM.from_pretrained(model_name)
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     num_layers = model.config.num_hidden_layers
